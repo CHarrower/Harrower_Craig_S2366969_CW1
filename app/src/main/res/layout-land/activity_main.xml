@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- MPD XML Starter code 2025-2026 -->
+<!-- landscape version: summary + tabs in a column on the left, fragments get the wide space on the right
+     same widgets + same ids as the portrait one so MainActivity works with either (portrait/landscape guide) -->
+<!-- framelayout so the details can sit on top of everything -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- toolbar at the top for the options menu (lecture 7a, AppBarTest) -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            />
+
+        <!-- everything under the toolbar: controls column on the left, fragments on the right -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!-- left column - scrolls in case the phone is short in landscape -->
+            <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp">
+                    <!-- "live" label + spinner while the feeds download (ProgressBar, lab 6) -->
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:id="@+id/salutation"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/app_live"
+                            android:text="● Live traffic"
+                            />
+                        <ProgressBar
+                            android:id="@+id/loadingSpinner"
+                            style="?android:attr/progressBarStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            />
+                    </LinearLayout>
+
+                    <!-- summary tiles with the counts -->
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp">
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="4dp"
+                            android:padding="10dp"
+                            android:background="@drawable/tile_background">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:textColor="?android:attr/textColorSecondary"
+                                android:text="Incidents"
+                                />
+                            <TextView
+                                android:id="@+id/incidentCountText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:text="-"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="4dp"
+                            android:padding="10dp"
+                            android:background="@drawable/tile_background">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:textColor="?android:attr/textColorSecondary"
+                                android:text="Roadworks"
+                                />
+                            <TextView
+                                android:id="@+id/roadworkCountText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:text="-"
+                                />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- status line, e.g. "Updated at 17:16" -->
+                    <TextView
+                        android:id="@+id/rawDataDisplay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:textSize="12sp"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:text=""
+                        android:visibility="gone"
+                        />
+                    <TextView
+                        android:id="@+id/acknowledgement"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:text="Contains Traffic Scotland data"
+                        />
+                    <!-- refresh is in the toolbar menu now -->
+
+                    <!-- tabs stacked down the side instead of in a row (like a side menu) -->
+                    <Button
+                        android:id="@+id/incidentsButton"
+                        app:icon="@drawable/tab_incidents"
+                        app:iconGravity="textStart"
+                        app:iconSize="20dp"
+                        app:iconPadding="12dp"
+                        style="@style/AppTab"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|center_vertical"
+                        android:textSize="13sp"
+                        android:text="Incidents"
+                        />
+                    <Button
+                        android:id="@+id/roadworksButton"
+                        app:icon="@drawable/tab_roadworks"
+                        app:iconGravity="textStart"
+                        app:iconSize="20dp"
+                        app:iconPadding="12dp"
+                        style="@style/AppTab"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|center_vertical"
+                        android:textSize="13sp"
+                        android:text="Roadworks"
+                        />
+                    <Button
+                        android:id="@+id/mapButton"
+                        app:icon="@drawable/tab_map"
+                        app:iconGravity="textStart"
+                        app:iconSize="20dp"
+                        app:iconPadding="12dp"
+                        style="@style/AppTab"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|center_vertical"
+                        android:textSize="13sp"
+                        android:text="Map"
+                        />
+                    <Button
+                        android:id="@+id/searchButton"
+                        app:icon="@drawable/tab_search"
+                        app:iconGravity="textStart"
+                        app:iconSize="20dp"
+                        app:iconPadding="12dp"
+                        style="@style/AppTab"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|center_vertical"
+                        android:textSize="13sp"
+                        android:text="Search"
+                        />
+                </LinearLayout>
+            </ScrollView>
+
+            <!-- thin line between the controls and the screens -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider"
+                />
+
+            <!-- the fragments get swapped in here (wider in landscape) -->
+            <FrameLayout
+                android:id="@+id/fragmentHolder"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- detail screen goes in here, on top of everything below the toolbar (so the menu still works) -->
+    <FrameLayout
+        android:id="@+id/detailHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:elevation="8dp"
+        android:visibility="gone"
+        />
+</FrameLayout>

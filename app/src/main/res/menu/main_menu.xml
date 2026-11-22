@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- options menu in the toolbar (the ⋮ button) - actions + extras, the buttons are for the screens (lecture 7a, AppBarTest) -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuRefresh"
+        android:title="Refresh data"
+        />
+    <!-- map types like lab 7 task 3 -->
+    <item
+        android:id="@+id/menuMapNormal"
+        android:title="Map type: normal"
+        />
+    <item
+        android:id="@+id/menuMapSatellite"
+        android:title="Map type: satellite"
+        />
+    <item
+        android:id="@+id/menuMapTerrain"
+        android:title="Map type: terrain"
+        />
+    <item
+        android:id="@+id/menuAbout"
+        android:title="About"
+        />
+</menu>

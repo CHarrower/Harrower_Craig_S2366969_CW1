@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!-- app colours - dark navy so the red/amber/orange delay colours stand out (week 2 colour resources) -->
+    <color name="app_primary">#FF1B2A41</color>
+    <color name="app_on_primary">#FFFFFFFF</color>
+    <color name="app_live">#FFD32F2F</color> <!-- red for the "live" title -->
+    <!-- tabs - the one for the screen that's showing is highlighted -->
+    <color name="tab_text">#FF8A8F98</color>
+    <color name="tab_selected_text">#FF1E88E5</color>
+    <color name="tab_selected_bg">#261E88E5</color>
+    <!-- see-through grey for the summary tiles and card edges (works in light and dark mode) -->
+    <color name="tile_bg">#1F8A8F98</color>
+    <color name="card_edge">#4D8A8F98</color>
+    <!-- delay badges: light fill + dark text of the same colour -->
+    <color name="badge_short_bg">#FFFAEEDA</color>
+    <color name="badge_short_text">#FF633806</color>
+    <color name="badge_long_bg">#FFFAECE7</color>
+    <color name="badge_long_text">#FF712B13</color>
+    <color name="badge_very_long_bg">#FFFCEBEB</color>
+    <color name="badge_very_long_text">#FF791F1F</color>
+    <!-- white box behind the map key so it's readable on top of the map -->
+    <color name="map_key_bg">#E6FFFFFF</color>
+    <color name="map_roadworks">#FF1E88E5</color> <!-- same blue as the roadworks pins -->
+    <!-- colour-coded roadwork delays (short -> long) -->
+    <color name="delay_none">#00000000</color>
+    <color name="delay_short">#FFF9A825</color>
+    <color name="delay_long">#FFE65100</color>
+    <color name="delay_very_long">#FFC62828</color>
+</resources>

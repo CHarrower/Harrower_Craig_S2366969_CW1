@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Harrower_Craig_S2366969" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- toolbar + buttons use these -->
+        <item name="colorPrimary">@color/app_primary</item>
+        <item name="colorOnPrimary">@color/app_on_primary</item>
+        <!-- squarer buttons everywhere instead of the round pill ones -->
+        <item name="materialButtonStyle">@style/AppButton</item>
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.Harrower_Craig_S2366969" parent="Base.Theme.Harrower_Craig_S2366969" />
+
+    <!-- normal buttons (search, show on map): only slightly rounded corners -->
+    <style name="AppButton" parent="Widget.Material3.Button">
+        <item name="cornerRadius">4dp</item>
+    </style>
+
+    <!-- tabs + back button: flat, square, no rounding at all (like the tab bars on traffic / map apps) -->
+    <style name="AppTab" parent="Widget.Material3.Button.TextButton">
+        <item name="cornerRadius">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+</resources>
